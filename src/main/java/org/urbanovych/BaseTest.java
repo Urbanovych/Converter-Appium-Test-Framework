@@ -4,22 +4,38 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.By;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class BaseTest {
 
     private static AppiumDriverLocalService server;
     private static AndroidDriver driver;
+    private static WebDriverWait wait;
+    private static final String layoutTitleId = "android:id/action_bar_title";
+    private static final String temperatureLinearLayoutXpath = "//android.widget.RelativeLayout[2]/android.widget.LinearLayout";
+    private static final String lengthLinearLayoutXpath = "//android.widget.RelativeLayout[3]/android.widget.LinearLayout";
+    private static final String burgerIconId = "android:id/home";
+    private static final String inputValuePlaceholderId = "com.unitconverter.freeunitconversioncalculator:id/unesena_vrednost";
+    private static final String numberFiveCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/petica";
+    private static final String okCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/spustitastaturu";
+    private static final String calcIconId = "com.unitconverter.freeunitconversioncalculator:id/imageView16";
+    private static final String clearAllCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/clear";
+    private static final String deleteSymbolCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/delete";
+    private static final String plusMinusCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/plusminus";
+    private static final String commaCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/zarez";
 
     public static AndroidDriver getDriver() {
         return driver;
     }
 
     public static void configureAppiumWithAndroidDriver() throws MalformedURLException {
-        // AndroidDriver, IosDriver
-        // Appium Code -> Appium Server -> Mobile Device
         AppiumServiceBuilder appiumDriverLocalService = new AppiumServiceBuilder()
                 .withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
                 .usingDriverExecutable(new File("/usr/local/bin/node"))
@@ -32,13 +48,76 @@ public class BaseTest {
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 2 XL Lollipop");
         options.setApp("src/main/resources/FreeUnitConverter.apk");
+        options.setAutomationName("UiAutomator2");
 
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), options);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public static void tearDown() {
         driver.quit();
         server.stop();
     }
+
+    public static void clickTemperatureLayout() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(temperatureLinearLayoutXpath)));
+        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
+    }
+
+    public static void clickLengthLayout() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(lengthLinearLayoutXpath)));
+        driver.findElement(By.xpath(lengthLinearLayoutXpath)).click();
+    }
+
+    public static void clickBurgerIcon() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(burgerIconId)));
+        driver.findElement(By.id(burgerIconId)).click();
+    }
+
+    public static void clickOkCalculationButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(okCalcBtnId)));
+        driver.findElement(By.id(okCalcBtnId)).click();
+    }
+
+    public static void clickInputValuePlaceholder() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputValuePlaceholderId)));
+        driver.findElement(By.id(inputValuePlaceholderId)).click();
+    }
+
+    public static void clickNumberFive() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(numberFiveCalcBtnId)));
+        driver.findElement(By.id(numberFiveCalcBtnId)).click();
+    }
+
+    public static void clickCalculationIcon() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(calcIconId)));
+        driver.findElement(By.id(calcIconId)).click();
+    }
+
+    public static void clickClearAllCalculationButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(clearAllCalcBtnId)));
+        driver.findElement(By.id(clearAllCalcBtnId)).click();
+    }
+
+    public static void clickDeleteSymbolButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(deleteSymbolCalcBtnId)));
+        driver.findElement(By.id(deleteSymbolCalcBtnId)).click();
+    }
+
+    public static void clickPlusMinusButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(plusMinusCalcBtnId)));
+        driver.findElement(By.id(plusMinusCalcBtnId)).click();
+    }
+
+    public static void clickCommaCalcButton() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(commaCalcBtnId)));
+        driver.findElement(By.id(commaCalcBtnId)).click();
+    }
+
+    public static void waitForPageLoaded() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(layoutTitleId)));
+    }
+
+
 
 }

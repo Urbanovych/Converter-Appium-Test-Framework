@@ -10,16 +10,13 @@ import org.openqa.selenium.By;
 import org.urbanovych.BaseTest;
 
 import java.net.MalformedURLException;
-import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.urbanovych.BaseTest.*;
 
 public class NavigationTest {
 
     private AndroidDriver driver;
-    private final String temperatureLinearLayoutXpath = "//android.widget.RelativeLayout[2]/android.widget.LinearLayout";
-    private final String lengthLinearLayoutXpath = "//android.widget.RelativeLayout[3]/android.widget.LinearLayout";
-    private final String burgerIconId = "android:id/home";
     private final String layoutTitleId = "android:id/action_bar_title";
 
     @BeforeEach
@@ -40,28 +37,24 @@ public class NavigationTest {
     @Description("Verify that user can move between category pages from start page")
     @Test
     public void moveToCategoryPageTest() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
+        clickTemperatureLayout();
+        waitForPageLoaded();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assertEquals(driver.findElement(By.id(layoutTitleId)).getText(), "Temperature");
     }
 
     @Description("Verify that user can move between category pages")
     @Test
     public void moveBetweenCategoryPageTest() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
+        clickTemperatureLayout();
+        waitForPageLoaded();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assertEquals(driver.findElement(By.id(layoutTitleId)).getText(), "Temperature");
 
-        driver.findElement(By.id(burgerIconId)).click();
+        clickBurgerIcon();
+        clickLengthLayout();
+        waitForPageLoaded();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.findElement(By.xpath(lengthLinearLayoutXpath)).click();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         assertEquals(driver.findElement(By.id(layoutTitleId)).getText(), "Length");
     }
 
