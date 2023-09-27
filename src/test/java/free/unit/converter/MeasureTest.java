@@ -47,16 +47,6 @@ public class MeasureTest {
         BaseTest.tearDown();
     }
 
-    @Test
-    public void s() {
-        System.out.println(size.getHeight());
-        System.out.println(size.getWidth());
-
-        System.out.println(size.getHeight() * 0.4);
-        System.out.println(size.getWidth() * 0.3);
-        System.out.println(size.getWidth() * 0.23);
-    }
-
     @Description("Verify that user can change measure unit to fahrenheit from celsius")
     @Test
     public void changeMeasureToFahrenheitTest() {
