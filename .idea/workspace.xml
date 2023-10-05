@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfd00483-3e38-42a8-bf5a-351277ed250e" name="Changes" comment="YU: Create V1 of Appium Framework.">
+    <list default="true" id="dfd00483-3e38-42a8-bf5a-351277ed250e" name="Changes" comment="YU: &#10;- Removed log creating. &#10;- Made test classes extend BaseTest and remove BeforeEach and AfterEach from test classes.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/urbanovych/pageObjects/CategoryLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/urbanovych/pageObjects/MeasureLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/urbanovych/wait/WaitHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppiumLog.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/urbanovych/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/urbanovych/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/free/unit/converter/CalculationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/free/unit/converter/CalculationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/free/unit/converter/MeasureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/free/unit/converter/MeasureTest.java" afterDir="false" />
@@ -74,7 +76,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MeasureTest.changeMeasureToFahrenheitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MeasureTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SecondAppiumProject" />
       <extension name="coverage">
         <pattern>
@@ -84,8 +86,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="free.unit.converter" />
       <option name="MAIN_CLASS_NAME" value="free.unit.converter.MeasureTest" />
-      <option name="METHOD_NAME" value="changeMeasureToFahrenheitTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.converter in SecondAppiumProject" />
+        <item itemvalue="JUnit.MeasureTest" />
         <item itemvalue="JUnit.NavigationTest" />
         <item itemvalue="JUnit.CalculationTest.clearAllSymbolsTest" />
         <item itemvalue="JUnit.NavigationTest.moveToCategoryPageTest" />
-        <item itemvalue="JUnit.MeasureTest.changeMeasureToFahrenheitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695760898866</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="YU:&#10;&#10;- Removed log creating.&#10;- Made test classes extend BaseTest and remove BeforeEach and AfterEach from test classes.">
+      <created>1696512356759</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696512356759</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,6 +192,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="YU: Create V1 of Appium Framework." />
-    <option name="LAST_COMMIT_MESSAGE" value="YU: Create V1 of Appium Framework." />
+    <MESSAGE value="YU: &#10;- Removed log creating. &#10;- Made test classes extend BaseTest and remove BeforeEach and AfterEach from test classes." />
+    <MESSAGE value="YU:&#10;- Removed log creating.&#10;- Made test classes extend BaseTest and remove BeforeEach and AfterEach from test classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="YU: &#10;- Removed log creating. &#10;- Made test classes extend BaseTest and remove BeforeEach and AfterEach from test classes." />
   </component>
 </project>

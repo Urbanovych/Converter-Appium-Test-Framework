@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.urbanovych.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.urbanovych.pageObjects.CategoryLayout.clickTemperatureLayout;
 
 public class NavigationTest extends BaseTest {
 

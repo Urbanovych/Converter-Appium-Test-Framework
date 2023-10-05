@@ -19,7 +19,7 @@ public class BaseTest {
 
     private static AppiumDriverLocalService server;
     protected static AndroidDriver driver;
-    private static WebDriverWait wait;
+    protected static WebDriverWait wait;
     private static final String layoutTitleId = "android:id/action_bar_title";
     private static final String temperatureLinearLayoutXpath = "//android.widget.RelativeLayout[2]/android.widget.LinearLayout";
     private static final String lengthLinearLayoutXpath = "//android.widget.RelativeLayout[3]/android.widget.LinearLayout";
@@ -62,10 +62,10 @@ public class BaseTest {
         server.stop();
     }
 
-    public static void clickTemperatureLayout() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(temperatureLinearLayoutXpath)));
-        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
-    }
+//    public static void clickTemperatureLayout() {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(temperatureLinearLayoutXpath)));
+//        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
+//    }
 
     public static void clickLengthLayout() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(lengthLinearLayoutXpath)));
