@@ -4,48 +4,23 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import jdk.jfr.Description;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.urbanovych.BaseTest;
 
-import java.net.MalformedURLException;
 import java.time.Duration;
 
-import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.urbanovych.BaseTest.clickTemperatureLayout;
-import static org.urbanovych.BaseTest.waitForPageLoaded;
 
-public class MeasureTest {
+public class MeasureTest extends BaseTest {
 
-    private AndroidDriver driver;
     private final String celsiusXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView";
     private final String fahrenheitXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.TextView";
     private final String kelvinXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[3]/android.widget.RelativeLayout[1]/android.widget.TextView";
     private final String scrollBar = "//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[1]/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.ImageView";
-    private Dimension size;
-
-    @BeforeEach
-    public void setup() {
-        try {
-            BaseTest.configureAppiumWithAndroidDriver();
-            driver = BaseTest.getDriver();
-            size = driver.manage().window().getSize();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @AfterEach
-    public void cleanUp() {
-        BaseTest.tearDown();
-    }
 
     @Description("Verify that user can change measure unit to fahrenheit from celsius")
     @Test

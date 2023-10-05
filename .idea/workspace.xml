@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfd00483-3e38-42a8-bf5a-351277ed250e" name="Changes" comment="YU: Create V1 of Appium Framework.">
-      <change afterPath="$PROJECT_DIR$/Demo.mov" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppiumLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AppiumLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppiumLog.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/urbanovych/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/urbanovych/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/free/unit/converter/CalculationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/free/unit/converter/CalculationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/free/unit/converter/MeasureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/free/unit/converter/MeasureTest.java" afterDir="false" />
@@ -134,8 +132,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.converter in SecondAppiumProject" />
-        <item itemvalue="JUnit.CalculationTest.clearAllSymbolsTest" />
         <item itemvalue="JUnit.NavigationTest" />
+        <item itemvalue="JUnit.CalculationTest.clearAllSymbolsTest" />
         <item itemvalue="JUnit.NavigationTest.moveToCategoryPageTest" />
         <item itemvalue="JUnit.MeasureTest.changeMeasureToFahrenheitTest" />
       </list>

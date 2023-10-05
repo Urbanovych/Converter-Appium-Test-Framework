@@ -4,6 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.By;
@@ -16,7 +18,7 @@ import java.time.Duration;
 public class BaseTest {
 
     private static AppiumDriverLocalService server;
-    private static AndroidDriver driver;
+    protected static AndroidDriver driver;
     private static WebDriverWait wait;
     private static final String layoutTitleId = "android:id/action_bar_title";
     private static final String temperatureLinearLayoutXpath = "//android.widget.RelativeLayout[2]/android.widget.LinearLayout";
@@ -35,13 +37,13 @@ public class BaseTest {
         return driver;
     }
 
-    public static void configureAppiumWithAndroidDriver() throws MalformedURLException {
+    @BeforeEach
+    public void configureAppiumWithAndroidDriver() throws MalformedURLException {
         AppiumServiceBuilder appiumDriverLocalService = new AppiumServiceBuilder()
                 .withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
                 .usingDriverExecutable(new File("/usr/local/bin/node"))
                 .withIPAddress("127.0.0.1")
-                .usingPort(4723)
-                .withLogFile(new File("AppiumLog.txt"));
+                .usingPort(4723);
         server = AppiumDriverLocalService.buildService(appiumDriverLocalService);
         server.start();
 
@@ -54,7 +56,8 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    public static void tearDown() {
+    @AfterEach
+    public void tearDown() {
         driver.quit();
         server.stop();
     }

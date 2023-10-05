@@ -1,40 +1,18 @@
 package free.unit.converter;
 
-import io.appium.java_client.android.AndroidDriver;
 import jdk.jfr.Description;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import org.urbanovych.BaseTest;
 
-import java.net.MalformedURLException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.urbanovych.BaseTest.*;
 
-public class CalculationTest {
+public class CalculationTest extends BaseTest {
 
-    private AndroidDriver driver;
     private final String celsiusXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView";
     private final String fahrenheitXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.TextView";
     private final String kelvinXpath = "//android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[2]/android.widget.ListView/android.widget.LinearLayout[3]/android.widget.RelativeLayout[1]/android.widget.TextView";
-
-    @BeforeEach
-    public void setup() {
-        try {
-            BaseTest.configureAppiumWithAndroidDriver();
-            driver = BaseTest.getDriver();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @AfterEach
-    public void cleanUp() {
-        BaseTest.tearDown();
-    }
 
     @Description("Verify that we can change input value in value placeholder")
     @Test
