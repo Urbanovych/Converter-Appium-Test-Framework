@@ -16,7 +16,6 @@ public class MeasureTest extends BaseTest {
     @Test
     public void changeMeasureToFahrenheitTest() {
         clickTemperatureLayout();
-        waitForPageLoaded();
         moveToFahrenheitMeasure();
 
         assertMeasures("-17.22222", "1", "255.92777");
@@ -26,7 +25,6 @@ public class MeasureTest extends BaseTest {
     @Test
     public void changeMeasureToKelvinTest() {
         clickTemperatureLayout();
-        waitForPageLoaded();
         moveToKelvinMeasure();
 
         assertMeasures("-272.15", "-457.86998", "1");
