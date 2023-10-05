@@ -21,9 +21,6 @@ public class BaseTest {
     protected static AndroidDriver driver;
     protected static WebDriverWait wait;
     private static final String layoutTitleId = "android:id/action_bar_title";
-    private static final String temperatureLinearLayoutXpath = "//android.widget.RelativeLayout[2]/android.widget.LinearLayout";
-    private static final String lengthLinearLayoutXpath = "//android.widget.RelativeLayout[3]/android.widget.LinearLayout";
-    private static final String burgerIconId = "android:id/home";
     private static final String inputValuePlaceholderId = "com.unitconverter.freeunitconversioncalculator:id/unesena_vrednost";
     private static final String numberFiveCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/petica";
     private static final String okCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/spustitastaturu";
@@ -60,21 +57,6 @@ public class BaseTest {
     public void tearDown() {
         driver.quit();
         server.stop();
-    }
-
-//    public static void clickTemperatureLayout() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(temperatureLinearLayoutXpath)));
-//        driver.findElement(By.xpath(temperatureLinearLayoutXpath)).click();
-//    }
-
-    public static void clickLengthLayout() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(lengthLinearLayoutXpath)));
-        driver.findElement(By.xpath(lengthLinearLayoutXpath)).click();
-    }
-
-    public static void clickBurgerIcon() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(burgerIconId)));
-        driver.findElement(By.id(burgerIconId)).click();
     }
 
     public static void clickOkCalculationButton() {

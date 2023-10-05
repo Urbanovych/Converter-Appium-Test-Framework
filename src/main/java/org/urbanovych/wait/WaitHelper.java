@@ -12,8 +12,16 @@ public class WaitHelper extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathLocator))).click();
     }
 
+    public static void clickVisibleElementById (String idLocator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idLocator))).click();
+    }
+
     public static String getTextVisibleElementByXpath (String xpathLocator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathLocator))).getText();
+    }
+
+    public static String getTextVisibleElementById (String idLocator) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(idLocator))).getText();
     }
 
     public static void waitForPageLoaded() {
