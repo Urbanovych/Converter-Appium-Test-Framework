@@ -9,9 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Properties;
 
 public class BaseTest {
 
@@ -20,19 +22,25 @@ public class BaseTest {
     protected static WebDriverWait wait;
 
     @BeforeEach
-    public void configureAppiumWithAndroidDriver() throws MalformedURLException {
+    public void configureAppiumWithAndroidDriver() throws IOException {
+        Properties appiumDriverProperties = new Properties();
+        FileInputStream appiumFileInputStream = new FileInputStream("src/main/resources/appiumDriver.properties");
+        appiumDriverProperties.load(appiumFileInputStream);
         AppiumServiceBuilder appiumDriverLocalService = new AppiumServiceBuilder()
-                .withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
-                .usingDriverExecutable(new File("/usr/local/bin/node"))
-                .withIPAddress("127.0.0.1")
-                .usingPort(4723);
+                .withAppiumJS(new File(appiumDriverProperties.getProperty("appiumJsPath")))
+                .usingDriverExecutable(new File(appiumDriverProperties.getProperty("driverExecutablePath")))
+                .withIPAddress(appiumDriverProperties.getProperty("ipAddress"))
+                .usingPort(Integer.parseInt(appiumDriverProperties.getProperty("port")));
         server = AppiumDriverLocalService.buildService(appiumDriverLocalService);
         server.start();
 
+        Properties androidDriverProperties = new Properties();
+        FileInputStream androidFileInputStream = new FileInputStream("src/main/resources/androidDriver.properties");
+        androidDriverProperties.load(androidFileInputStream);
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("Pixel 2 XL Lollipop");
-        options.setApp("src/main/resources/FreeUnitConverter.apk");
-        options.setAutomationName("UiAutomator2");
+        options.setDeviceName(androidDriverProperties.getProperty("deviceName"));
+        options.setApp(androidDriverProperties.getProperty("appPath"));
+        options.setAutomationName(androidDriverProperties.getProperty("automationName"));
 
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723"), options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
