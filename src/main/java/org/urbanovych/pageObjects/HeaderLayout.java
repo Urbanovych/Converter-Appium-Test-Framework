@@ -5,7 +5,7 @@ import org.urbanovych.BaseTest;
 import static org.urbanovych.wait.WaitHelper.clickVisibleElementById;
 import static org.urbanovych.wait.WaitHelper.getTextVisibleElementById;
 
-public class HeaderLayout extends BaseTest {
+public class HeaderLayout {
 
     private static final String layoutTitleId = "android:id/action_bar_title";
     private static final String burgerIconId = "android:id/home";
