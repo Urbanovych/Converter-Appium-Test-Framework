@@ -1,7 +1,7 @@
 package org.urbanovych.pageObjects;
 
-import static org.urbanovych.wait.WaitHelper.clickVisibleElementByXpath;
-import static org.urbanovych.wait.WaitHelper.waitForPageLoaded;
+import static org.urbanovych.actions.click.ClickHelper.makeClickByXpath;
+import static org.urbanovych.actions.wait.WaitHelper.waitForPageLoaded;
 
 public class CategoryLayout {
 
@@ -9,12 +9,12 @@ public class CategoryLayout {
     private static final String lengthLinearLayoutXpath = "//android.widget.RelativeLayout[3]/android.widget.LinearLayout";
 
     public static void clickTemperatureLayout() {
-        clickVisibleElementByXpath(temperatureLinearLayoutXpath);
+        makeClickByXpath(temperatureLinearLayoutXpath);
         waitForPageLoaded();
     }
 
     public static void clickLengthLayout() {
-        clickVisibleElementByXpath(lengthLinearLayoutXpath);
+        makeClickByXpath(lengthLinearLayoutXpath);
         waitForPageLoaded();
     }
 }

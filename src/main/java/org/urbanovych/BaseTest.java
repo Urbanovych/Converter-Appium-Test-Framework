@@ -52,4 +52,8 @@ public class BaseTest {
         server.stop();
     }
 
+    public static WebDriverWait getWait() {
+        return wait;
+    }
+
 }

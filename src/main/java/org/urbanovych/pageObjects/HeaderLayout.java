@@ -1,9 +1,8 @@
 package org.urbanovych.pageObjects;
 
-import org.urbanovych.BaseTest;
+import static org.urbanovych.actions.click.ClickHelper.makeClickById;
+import static org.urbanovych.actions.text.GetTextHelper.getTextById;
 
-import static org.urbanovych.wait.WaitHelper.clickVisibleElementById;
-import static org.urbanovych.wait.WaitHelper.getTextVisibleElementById;
 
 public class HeaderLayout {
 
@@ -11,11 +10,11 @@ public class HeaderLayout {
     private static final String burgerIconId = "android:id/home";
 
     public static String getMeasurePageTitle() {
-        return getTextVisibleElementById(layoutTitleId);
+        return getTextById(layoutTitleId);
     }
 
     public static void clickBurgerIcon() {
-        clickVisibleElementById(burgerIconId);
+        makeClickById(burgerIconId);
     }
 
 }

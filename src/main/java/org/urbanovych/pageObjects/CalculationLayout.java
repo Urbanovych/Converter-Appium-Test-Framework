@@ -1,6 +1,6 @@
 package org.urbanovych.pageObjects;
 
-import static org.urbanovych.wait.WaitHelper.clickVisibleElementById;
+import static org.urbanovych.actions.click.ClickHelper.makeClickById;
 
 public class CalculationLayout {
 
@@ -13,31 +13,31 @@ public class CalculationLayout {
     private static final String commaCalcBtnId = "com.unitconverter.freeunitconversioncalculator:id/zarez";
 
     public static void clickOkCalculationButton() {
-        clickVisibleElementById(okCalcBtnId);
+        makeClickById(okCalcBtnId);
     }
 
     public static void clickNumberFive() {
-        clickVisibleElementById(numberFiveCalcBtnId);
+        makeClickById(numberFiveCalcBtnId);
     }
 
     public static void clickCalculationIcon() {
-        clickVisibleElementById(calcIconId);
+        makeClickById(calcIconId);
     }
 
     public static void clickClearAllCalculationButton() {
-        clickVisibleElementById(clearAllCalcBtnId);
+        makeClickById(clearAllCalcBtnId);
     }
 
     public static void clickDeleteSymbolButton() {
-        clickVisibleElementById(deleteSymbolCalcBtnId);
+        makeClickById(deleteSymbolCalcBtnId);
     }
 
     public static void clickPlusMinusButton() {
-        clickVisibleElementById(plusMinusCalcBtnId);
+        makeClickById(plusMinusCalcBtnId);
     }
 
     public static void clickCommaCalcButton() {
-        clickVisibleElementById(commaCalcBtnId);
+        makeClickById(commaCalcBtnId);
     }
 
 }
