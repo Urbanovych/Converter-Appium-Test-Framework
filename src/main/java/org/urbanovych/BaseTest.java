@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import static org.urbanovych.properties.PropertiesHelper.getPropertiesFromPath;
+
 public class BaseTest {
 
     private static AppiumDriverLocalService server;
@@ -22,9 +24,7 @@ public class BaseTest {
 
     @BeforeEach
     public void configureAppiumWithAndroidDriver() throws IOException {
-        Properties appiumDriverProperties = new Properties();
-        FileInputStream appiumFileInputStream = new FileInputStream("src/main/resources/appiumDriver.properties");
-        appiumDriverProperties.load(appiumFileInputStream);
+        Properties appiumDriverProperties = getPropertiesFromPath("src/main/resources/appiumDriver.properties");
         AppiumServiceBuilder appiumDriverLocalService = new AppiumServiceBuilder()
                 .withAppiumJS(new File(appiumDriverProperties.getProperty("appiumJsPath")))
                 .usingDriverExecutable(new File(appiumDriverProperties.getProperty("driverExecutablePath")))
