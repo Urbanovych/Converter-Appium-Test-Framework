@@ -106,7 +106,8 @@ For run tests: just start android emulator in android studio and run free.unit.c
 <!-- CONTACT -->
 ## Contact
 
-Yaroslav Urbanovych - yurbanovych@griddynamics.com
+Yaroslav Urbanovych - urbanovych.qa@gmail.com
+LinkedIn: https://www.linkedin.com/in/yaroslav-urbanovych/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
